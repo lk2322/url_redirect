@@ -6,7 +6,7 @@ import errors
 import string
 app = flask.Flask(__name__)
 
-DOMAIN = 'example.com'
+DOMAIN = 'example.com/'
 HOST_IP = '192.168.1.200'
 
 @app.route('/')
@@ -31,11 +31,15 @@ def index():
         db.add_url(o_url, r_url, rerol=True)
         flask.g.r_url = DOMAIN + r_url
         return flask.render_template('result.html') 
+    if r_url.split('/')[0] == 'get' or r_url == 'get':
+        flask.g.r_url = 'This link is required for the service to work.'
+        return flask.render_template('result.html') 
+
     ###########################
     try:
         db.add_url(o_url, r_url)
     except errors.LinkAlreadyExistsError as e:
-        flask.g.r_url = 'This link already exists: lk2322.asuscomm.com/' + e.r_url
+        flask.g.r_url = f'This link already exists: {DOMAIN}' + e.r_url
     else:
         flask.g.r_url = DOMAIN + r_url
         return flask.render_template('result.html')    
