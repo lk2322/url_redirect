@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<style>
+  body {
+    width: 96%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center; 
+    justify-content: center; 
+    overflow: auto;
+    font-family: sans-serif;
+  }
+  input[type=text],
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  div main {
+    height: 100%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+
+
+    
+    
+  }
+</style>
+
+<body>
+  <div class="main">
+    <form action="/get" method="get">
+      <div>
+        <label for="o_url">Original url</label>
+        <input type="text" name="o_url" id="o_url">
+      </div>
+      <div>
+        <label for="r_url">Link name (ex. test_link)<br> Leave blank for a random name</label>
+        <input type="text" name="r_url" id="r_url">
+      </div>
+      <div>
+        <button>Get</button>
+      </div>
+  </div>
+  </form>
+</body>
