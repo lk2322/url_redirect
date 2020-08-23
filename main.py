@@ -1,8 +1,6 @@
 import flask
 import os
 import db
-import sys
-import requests
 import random
 import errors
 import string
@@ -56,6 +54,5 @@ def catch_all(path):
 
 
 if __name__ == '__main__':
-    # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 80))
     app.run(host=HOST_IP, port=port)
